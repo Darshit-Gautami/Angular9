@@ -1,0 +1,36 @@
+
+<div class="container col-sm-12">  
+
+  <app-navbar></app-navbar>
+  <form [formGroup]="Profile" (ngSubmit)="this[EventValue]()">  
+        <div class="row" >  
+        <table class="table">  
+        <tr>  
+          <td>UserName</td>  
+          <td>  
+            <input type="text" formControlName="userName">  
+            <div *ngIf="submitted && Profile.controls.userName.errors" class="text-danger">  
+              <div *ngIf="Profile.controls.userName.errors.required">UserName is required</div>  
+            </div>   
+          </td>  
+        </tr>  
+          
+        <tr>  
+          <td>Email</td>  
+          <td>  
+            <input type="text" formControlName="userEmail">  
+            <div *ngIf="submitted && Profile.controls.userEmail.errors" class="text-danger">  
+              <div *ngIf="Profile.controls.userEmail.errors.required">Email required</div>  
+              <div *ngIf="Profile.controls.userEmail.errors?.email"> Email is not valid.</div>
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+          <td colspan="4">  
+            <button type="submit" class="col-sm-1 btn btn-primary pad5">Login</button>  
+          </td>  
+        </tr>  
+      </table>  
+      </div>  
+    </form>  
+    </div> 

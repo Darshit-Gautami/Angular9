@@ -1,0 +1,51 @@
+<div>
+  <div class="col-sm-12">  
+    <form [formGroup]="LoginForm" (ngSubmit)="this[EventValue]()">  
+        <div class="row" >  
+        <table class="table">  
+        <tr>  
+          <td>UserName</td>  
+          <td>  
+            <input type="text" formControlName="unm">  
+            <div *ngIf="submitted && LoginForm.controls.unm.errors" class="text-danger">  
+              <div *ngIf="LoginForm.controls.unm.errors.required">UserName is required</div>  
+            </div>   
+          </td>  
+        </tr>  
+          
+        <tr>  
+          <td>Email</td>  
+          <td>  
+            <input type="text" formControlName="email">  
+            <div *ngIf="submitted && LoginForm.controls.email.errors" class="text-danger">  
+              <div *ngIf="LoginForm.controls.email.errors.required">Email required</div>  
+              <div *ngIf="LoginForm.controls.email.errors?.email"> Email is not valid.</div>
+            </div>  
+          </td>  
+        </tr>  
+        <tr>  
+          <td>Password</td>  
+          <td>  
+            <input type="password" formControlName="pass">  
+            <div *ngIf="submitted && LoginForm.controls.pass.errors" class="text-danger">  
+              <div *ngIf="LoginForm.controls.pass.errors.required">Password is required</div>  
+            </div>  
+              
+          </td>  
+        </tr>  
+        <tr>  
+      
+          <td colspan="4">  
+            <button type="submit" class="col-sm-1 btn btn-primary pad5">Login</button>  
+            <button type="reset" class="col-sm-1 btn btn-danger">Reset</button>
+          </td>  
+        </tr>  
+      </table>  
+      </div>  
+    </form>  
+    </div> 
+</div>
+<div class="container">
+  <!-- <app-login></app-login> -->
+  <router-outlet></router-outlet>
+</div>
